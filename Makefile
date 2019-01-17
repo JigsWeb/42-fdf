@@ -6,8 +6,8 @@ SRCDIR = src
 INCLUDESDIR = includes
 LIBFTDIR = libft
 MINILIBXDIR = minilibx
-OBJS = $(addprefix $(OBJSDIR)/,main.o)
-SRCS = $(addprefix $(SRCDIR)/,main.c)
+OBJS = $(addprefix $(OBJSDIR)/,main.o creators.o matrice.o parser.o utils.o)
+SRCS = $(addprefix $(SRCDIR)/,main.c creators.c matrice.c parser.c utils.c)
 FRAMEWORKS = $(addprefix -framework ,OpenGL AppKit)
 LDFLAGS = $(addprefix -I ,/usr/local/include $(INCLUDESDIR) $(MINILIBXDIR))
 LIBS = -L $(LIBFTDIR) -lft -L /usr/local/lib -lmlx
@@ -19,7 +19,7 @@ clean:
 	make -C $(LIBFTDIR) clean
 
 fclean: clean
-	rm $(NAME)
+	rm -f $(NAME)
 	make -C $(LIBFTDIR) fclean
 
 re: fclean all
